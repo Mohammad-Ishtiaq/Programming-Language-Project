@@ -4,14 +4,22 @@ using UnityEngine;
 
 public class NPCMovement : MonoBehaviour
 {
+    //Speed at which you want the gameobject to move
     public int speed;
 
+    //Decied which direction you want the object to move in
     public bool goForward = true;
+    public bool goBackwards = false;
     public bool goRight = false;
     public bool goLeft = false;
 
-    public bool rotateRight = false;
-    public bool rotateleft = false;
+    //Rotate Right or Left on Y Axis
+    public bool yRotateRight = false;
+    public bool yRotateleft = false;
+    public bool xRotateup = false;
+    public bool xRotatedown = false;
+    public bool zRotateRight = false;
+    public bool zRotateleft = false;
 
     // Start is called before the first frame update
     void Start()
@@ -23,9 +31,14 @@ public class NPCMovement : MonoBehaviour
     void Update()
     {
 
+        //Directional Movement
         if (goForward == true)
         {
             transform.position += transform.forward * speed * Time.deltaTime;
+        }
+        else if (goBackwards == true)
+        {
+            transform.position += transform.forward * -speed * Time.deltaTime;
         }
         else if(goRight == true)
         {
@@ -37,13 +50,29 @@ public class NPCMovement : MonoBehaviour
         }
 
 
-        if (rotateRight == true)
+        if (yRotateRight == true)
         {
             transform.Rotate(Vector3.up, Time.deltaTime * speed);
         }
-        else if (rotateleft == true)
+        else if (yRotateleft == true)
         {
             transform.Rotate(Vector3.up, Time.deltaTime * -speed);
+        }
+        else if (xRotateup == true)
+        {
+            transform.Rotate(Vector3.left, Time.deltaTime * speed);
+        }
+        else if (xRotatedown == true)
+        {
+            transform.Rotate(Vector3.left, Time.deltaTime * -speed);
+        }
+        else if (zRotateRight == true)
+        {
+            transform.Rotate(Vector3.back, Time.deltaTime * speed);
+        }
+        else if (zRotateleft == true)
+        {
+            transform.Rotate(Vector3.back, Time.deltaTime * -speed);
         }
     }
 }

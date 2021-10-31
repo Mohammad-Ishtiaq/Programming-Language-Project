@@ -2017,10 +2017,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 8
   goForward: 1
+  goBackwards: 0
   goRight: 0
   goLeft: 0
-  rotateRight: 0
-  rotateleft: 0
+  yRotateRight: 0
+  yRotateleft: 0
+  xRotateup: 0
+  xRotatedown: 0
+  zRotateRight: 0
+  zRotateleft: 0
 --- !u!1 &3508192975248354747
 GameObject:
   m_ObjectHideFlags: 0
@@ -3254,10 +3259,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7
   goForward: 1
+  goBackwards: 0
   goRight: 0
   goLeft: 0
-  rotateRight: 0
-  rotateleft: 0
+  yRotateRight: 0
+  yRotateleft: 0
+  xRotateup: 0
+  xRotatedown: 0
+  zRotateRight: 0
+  zRotateleft: 0
 --- !u!1 &4922815200009423468
 GameObject:
   m_ObjectHideFlags: 0
