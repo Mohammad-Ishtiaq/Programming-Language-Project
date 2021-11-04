@@ -12,7 +12,7 @@ public class PlayerManager : MonoBehaviour
     public static int numberOfCoins;
     public Text coinText;
 
-    public static int scoreAmount;
+    public static int scoreAmount = 0;
     public Text scoreText;
 
     // Start is called before the first frame update
@@ -26,21 +26,23 @@ public class PlayerManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (!gameOver)
         {
             scoreAmount++;
             scoreText.text = "Score: " + scoreAmount;
-        }
-
-        coinText.text = "Coins: " + numberOfCoins;
-
-
-        if (gameOver)
+            coinText.text = "Coins: " + numberOfCoins;
+        }else if (gameOver)
         {
             Time.timeScale = 0;
             gameOverPanel.SetActive(true);
+
+            if (PlayerPrefs.GetInt("HighScore") < scoreAmount)
+            {
+                PlayerPrefs.SetInt("HighScore", scoreAmount);
+            }
+            PlayerPrefs.SetInt("CoinsTotal", numberOfCoins + PlayerPrefs.GetInt("CoinsTotal"));
         }
     }
 }

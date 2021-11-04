@@ -69,7 +69,6 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        //Calculae where we should be in the future
         //Calculate where we should be in the future
         Vector3 targetPosition = transform.position.z * transform.forward + transform.position.y * transform.up;
         if (desiredLane == 0)
@@ -81,15 +80,12 @@ public class PlayerController : MonoBehaviour
         if (transform.position != targetPosition)
         {
             Vector3 diff = targetPosition - transform.position;
-            Vector3 moveDir = diff.normalized * 80 * Time.deltaTime;
+            Vector3 moveDir = diff.normalized * 30 * Time.deltaTime;
             if (moveDir.sqrMagnitude < diff.magnitude)
                 controller.Move(moveDir);
             else
                 controller.Move(diff);
         }
-
-        //controller.Move(direction * Time.deltaTime);
-
 
     }
 

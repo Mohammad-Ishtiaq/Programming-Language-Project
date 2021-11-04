@@ -8,7 +8,7 @@ public class NPCMovement : MonoBehaviour
     public int speed;
 
     //Decied which direction you want the object to move in
-    public bool goForward = true;
+    public bool goForward = false;
     public bool goBackwards = false;
     public bool goRight = false;
     public bool goLeft = false;
@@ -24,7 +24,7 @@ public class NPCMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Time.timeScale = 1;
     }
 
     // Update is called once per frame
