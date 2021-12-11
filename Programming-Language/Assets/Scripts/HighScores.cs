@@ -14,4 +14,23 @@ public class HighScores : MonoBehaviour
         highScoreText.text = "HighScore: " + PlayerPrefs.GetInt("HighScore");
         CoinCount.text = "Coins: " + PlayerPrefs.GetInt("CoinsTotal");
     }
+
+    private void Update()
+    {
+        PlayerPrefs.GetInt("CoinsTotal");
+    }
+
+    public void setScore()
+    {
+        if (PlayerPrefs.GetInt("CoinsTotal") <= 0)
+        {
+            PlayerPrefs.SetInt("CoinsTotal", PlayerPrefs.GetInt("CoinsTotal") * 0);
+            CoinCount.text = "Coins: " + PlayerPrefs.GetInt("CoinsTotal");
+        }
+        else
+        {
+            PlayerPrefs.SetInt("CoinsTotal", PlayerPrefs.GetInt("CoinsTotal") - 500);
+            CoinCount.text = "Coins: " + PlayerPrefs.GetInt("CoinsTotal");
+        }
+    }
 }
